@@ -1,4 +1,8 @@
 #!/bin/sh
 
 export CI=true
-npm test ${@}
+if [ $# -eq 0 ]; then
+  npm test
+else
+  npx vitest "$@"
+fi
